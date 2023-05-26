@@ -1,0 +1,32 @@
+version: "3.8"
+
+networks:
+  pc_pokemon_network:
+    driver: bridge
+
+services:
+  postgres:
+    image: postgres:12.4
+    restart: always
+    volumes:
+      - volume_db:/usr/src/app
+      - ./database/:/docker-entrypoint-initdb.d/
+    ports:
+      - "5432"
+    networks:
+      - pc_pokemon_network
+    environment:
+      POSTGRES_USER: best_user_project
+      POSTGRES_PASSWORD: best_password_project
+      POSTGRES_DB: best_db_project
+  app:
+    build: .
+    restart: on-failure
+    ports:
+      - "80:8080"
+    networks:
+      - pc_pokemon_network
+    depends_on:
+      - postgres
+volumes:
+  volume_db:

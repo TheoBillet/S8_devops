@@ -1,0 +1,29 @@
+trainer creation
+post http://localhost:80/register
+{
+  "last_name": "billet",
+  "first_name": "theo",
+  "login": "theologin",
+  "password": "password"
+}
+
+pokemon creation
+post http://localhost:80/users/theologin/pokemons
+{
+  "species": "pikachu",
+  "name": "nuage",
+  "level": 5,
+  "gender": "M",
+  "shiny": false,
+  "height": 40.5,
+  "weight": 6
+}
+
+trade creation
+post http://localhost:80/trade
+{
+	"login_applicant": "theologin",
+    "login_receiver": "leopkmn",
+    "pokemon_applicant": [1],
+    "pokemon_receiver": [2]
+}
