@@ -13,7 +13,7 @@ jobs:
     steps:
       - checkout
       - run: npm install
-      - run: npm test
+      - run: jest tests/* --transformIgnorePatterns \"node_modules/(?!your-module-name)/\"
 
 # Invoke jobs via workflows
 # See: https://circleci.com/docs/configuration-reference/#workflows
