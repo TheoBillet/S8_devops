@@ -13,7 +13,8 @@ jobs:
     steps:
       - checkout
       - run: npm install
-      - run: jest tests/* --transformIgnorePatterns \"node_modules/(?!@ngrx|(?!deck.gl)|ng-dynamic)\"
+      - run: npm install --save-dev mocha
+      - run: mocha tests/*
 
 # Invoke jobs via workflows
 # See: https://circleci.com/docs/configuration-reference/#workflows
