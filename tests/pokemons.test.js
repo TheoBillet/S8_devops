@@ -1,9 +1,9 @@
 import app from '../app.js';
 import request from "supertest";
-import db from "../src/Database";
+import db from "../src/Database.js";
 import { CreateTrainer } from '../src/managers/TrainerManager.js';
 
-describe("tests pokemons", () => {
+describe("Tests pokemons", () => {
 
     let thisDb = db;
 
