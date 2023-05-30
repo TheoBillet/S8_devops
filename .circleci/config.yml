@@ -19,7 +19,7 @@ jobs:
             - ./node_modules
       - run:
           name: launch server
-          command: docker compose up -d
+          command: docker compose up --build -d
       - run:
           name: run tests
           command: docker compose exec app npm test
