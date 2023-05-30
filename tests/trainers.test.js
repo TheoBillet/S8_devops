@@ -28,6 +28,13 @@ describe('Test Trainer', () => {
             const response = await request(app).post('/register').send(payload).set('Content-Type', 'application/json').set('Accept', 'application/json');
             expect(response.statusCode).toBe(200);
         });
+        it("Should return status code 400", async () => {
+            // const params = '?last_name=Quentin&first_name=Guyot&login=Mithy&password=lebg'
+            const payload = {last_name: 'Quentin', first_name: 'Guyot', login: 'Mithy', password: 'lebg', birthday: null};
+            await request(app).post('/register').send(payload).set('Content-Type', 'application/json').set('Accept', 'application/json');
+            const response = await request(app).post('/register').send(payload).set('Content-Type', 'application/json').set('Accept', 'application/json');
+            expect(response.statusCode).toBe(400);
+        });
     });
 
     describe('GET', () => {
