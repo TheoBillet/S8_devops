@@ -6,7 +6,7 @@
   "type": "module",
   "scripts": {
     "start": "node server.js",
-    "test": "NODE_ENV=test jest tests/*",
+    "test": "NODE_ENV=test jest tests/* --runInBand",
     "test_code": "eslint *.js"
   },
   "keywords": [],
