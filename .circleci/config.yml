@@ -16,7 +16,10 @@ jobs:
           paths:
             - ./node_modules
       - run:
-          name: run test
-          command: npm test
+          name: launch server
+          command: docker compose up -d
+      - run:
+          name: run tests
+          command: docker compose exec app npm test
       - store_artifacts:
           path: ~/repo/pokemon
