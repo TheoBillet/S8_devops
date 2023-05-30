@@ -49,17 +49,5 @@ app.use((req, res) => {
     return res.sendStatus(404);
 });
 
-const port = 8080
-app.listen(port, async () => {
-    const config = JSON.parse(fs.readFileSync('./src/config.json'));
-    if (config.first_run)
-    {
-        const admin = await CreateTrainer('Leo', 'Pokemaniac', 'leopkmn', hashSync('cynthia', 10), '1999-10-09');
-        const right_list = await GetAllRights();
-        await AddRightsToTrainer(right_list, admin);
-        fs.writeFileSync('./src/config.json', JSON.stringify({
-            first_run: false
-        }));
-    }
-    
-});
+
+export default app;
