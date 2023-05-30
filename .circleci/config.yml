@@ -6,6 +6,8 @@ jobs:
       - image: cimg/node:18.0.0
     steps:
       - checkout
+      - setup_remote_docker:
+          version: 20.10.14
       - restore_cache:
           key: dependency-cache-{{ checksum "package-lock.json" }}
       - run:
@@ -17,7 +19,7 @@ jobs:
             - ./node_modules
       - run:
           name: launch server
-          command: docker compose up -d
+          command: docker compose up --build -d
       - run:
           name: run tests
           command: docker compose exec app npm test
