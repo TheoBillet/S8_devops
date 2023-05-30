@@ -6,6 +6,8 @@ jobs:
       - image: cimg/node:18.0.0
     steps:
       - checkout
+      - setup_remote_docker:
+          version: 20.10.14
       - restore_cache:
           key: dependency-cache-{{ checksum "package-lock.json" }}
       - run:
