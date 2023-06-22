@@ -48,3 +48,6 @@ Afin de démarrer le serveur lancer la commande suivante : docker compose up
 # Bonus
 Quentin Guyot: est-il possible d'avoir une véritable correction de l'implémentation OAuth2 avec les différents schéma de BDD, le code de gestion de tous les erreurs possibles ? 
 J'ai vu qu'il y avait une redirection vers '/token' dans '/authorize', mais cela est du POST sachant que /authorize est du GET. On ne peut pas rediriger, non ?
+
+
+test CI
